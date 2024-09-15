@@ -54,6 +54,7 @@ const sendOtp = asyncHandler(async (req, res) => {
   if (!mailResponse.success) {
     return res.status(500).json({
       message: mailResponse.error || "Failed to send Mail",
+      error: mailResponse
     });
   }
 

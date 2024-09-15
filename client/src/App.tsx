@@ -11,7 +11,7 @@ interface FormData {
   from: string;
   to: string;
   password: string;
-  title: string;
+  subject: string;
   text: string;
   html: string;
 }
@@ -25,7 +25,7 @@ function App() {
     from: "",
     to: "",
     password: "",
-    title: "",
+    subject: "",
     text: "",
     html: "",
   });
@@ -48,7 +48,7 @@ function App() {
     e.preventDefault();
     setLoading(true);
 
-    const { from, to, password, title, text, html } = formData;
+    const { from, to, password, subject, text, html } = formData;
     console.log(formData);
     try {
       if (password !== "iamdhvanit") {
@@ -63,7 +63,7 @@ function App() {
         data: {
           from,
           to,
-          title,
+          subject,
           text,
           html,
         },
@@ -81,7 +81,7 @@ function App() {
           from: "",
           to: "",
           password: "",
-          title: "",
+          subject: "",
           text: "",
           html: "",
         });
@@ -106,7 +106,7 @@ function App() {
           className="w-full px-6 md:px-0 md:w-1/3 space-y-3 flex flex-col justify-center items-center"
         >
           <Input
-            type="email"
+            type="text"
             label="From"
             name="from"
             value={formData.from}
@@ -147,9 +147,9 @@ function App() {
           />
           <Input
             type="text"
-            label="Title"
-            name="title"
-            value={formData.title}
+            label="Subject"
+            name="subject"
+            value={formData.subject}
             onChange={handleInputChange}
             required
           />
