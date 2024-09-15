@@ -49,14 +49,12 @@ function App() {
     setLoading(true);
 
     const { from, to, password, subject, text, html } = formData;
-    console.log(formData);
     try {
       if (password !== "iamdhvanit") {
         toast("Incorrect password");
         return;
       }
 
-      console.log(import.meta.env.VITE_ACCESS_CONTROL_ORIGIN)
       const response = await axios({
         method: "POST",
         url: `${import.meta.env.VITE_SERVER_API_URL}/mail/send-mail`,
@@ -69,8 +67,7 @@ function App() {
         },
         withCredentials: true,
         headers: {
-          "Access-control-Allow-Origin": import.meta.env
-            .VITE_ACCESS_CONTROL_ORIGIN,
+          "Access-control-Allow-Origin": import.meta.env.VITE_ACCESS_CONTROL_ORIGIN,
           "Content-Type": "application/json",
         },
       });
