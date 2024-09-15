@@ -1,3 +1,3 @@
 # Mailme
 
-A service for mails.
+A service for mails by ascedium.
